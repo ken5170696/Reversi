@@ -50,11 +50,27 @@ void SceneStack::draw()
 	}
 }
 
+void SceneStack::frame_buffer_size_callback(GLFWwindow* window, int width, int height)
+{
+	for (auto statesItr = statesStack.begin(); statesItr != statesStack.end(); ++statesItr)
+	{
+		(*statesItr)->frame_buffer_size_callback(window, width, height);
+	}
+}
+
 void SceneStack::mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
 	for (auto statesItr = statesStack.begin(); statesItr != statesStack.end(); ++statesItr)
 	{
 		(*statesItr)->mouse_callback(window, xposIn, yposIn);
+	}
+}
+
+void SceneStack::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	for (auto statesItr = statesStack.begin(); statesItr != statesStack.end(); ++statesItr)
+	{
+		(*statesItr)->mouse_button_callback(window, button, action, mods);
 	}
 }
 

@@ -1,0 +1,12 @@
+# Blender 3.3.1 MTL File: 'board_with_chess.blend'
+# www.blender.org
+
+newmtl 材質.001
+Ns 84.628075
+Ka 0.240909 0.240909 0.240909
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd black_chess.png
+map_Ks board_specular.jpg

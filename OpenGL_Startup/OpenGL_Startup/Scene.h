@@ -10,12 +10,17 @@ class Scene
 public:
 	Scene(SceneStack& stack, SceneContext context);
 	/*virtual ~State();*/
+
 	virtual void draw() = 0;
 	virtual bool update(float deltaTime) = 0;
 	virtual bool processInput(GLFWwindow* window) = 0;
+
+	virtual void frame_buffer_size_callback(GLFWwindow* window, int width, int height) = 0;
 	virtual void mouse_callback(GLFWwindow* window, double xposIn, double yposIn) = 0;
+	virtual void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) = 0;
 	virtual void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) = 0;
 	virtual void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) = 0;
+
 	void setSceneID(SceneID::ID _stateID);
 	SceneID::ID getSceneID() const;
 

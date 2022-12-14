@@ -51,9 +51,6 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="imgui\imgui_widgets.cpp">
       <Filter>Source Files\ImGui</Filter>
     </ClCompile>
@@ -84,9 +81,6 @@
     <ClCompile Include="stb_compile.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
@@ -111,10 +105,46 @@
     <ClCompile Include="UBO.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\Scene</Filter>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="SceneStack.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Chess.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardManager.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="FBO.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Floor.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowMap.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Speaker.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,9 +153,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameSetting.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="imgui\imstb_truetype.h">
@@ -155,9 +182,6 @@
     <ClInclude Include="imgui\imconfig.h">
       <Filter>Header Files\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
@@ -182,10 +206,46 @@
     <ClInclude Include="UBO.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
     <ClInclude Include="SceneStack.h">
-      <Filter>Header Files\Scenes</Filter>
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Chess.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardManager.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="FBO.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Floor.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMap.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Speaker.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
@@ -200,6 +260,24 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="resource\shader\screenShader.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\boundingbox.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\boundingbox.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\debug_quad_depth.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\debug_quad_depth.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\shadow_mapping_depth.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\shadow_mapping_depth.vert">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

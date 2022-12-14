@@ -62,7 +62,8 @@ Index of this file:
 // [SECTION] About Window / ShowAboutWindow()
 // [SECTION] Style Editor / ShowStyleEditor()
 // [SECTION] User Guide / ShowUserGuide()
-// [SECTION] Example App: Main Menu Bar / ShowExampleAppMainMenuBar()
+// [SECTION] 
+App: Main Menu Bar / ShowExampleAppMainMenuBar()
 // [SECTION] Example App: Debug Console / ShowExampleAppConsole()
 // [SECTION] Example App: Debug Log / ShowExampleAppLog()
 // [SECTION] Example App: Simple Layout / ShowExampleAppLayout()

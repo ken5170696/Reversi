@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <memory>
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
@@ -18,6 +19,7 @@ const unsigned int SCR_HEIGHT = 720;
 void frame_buffer_size_callback_handle(GLFWwindow* window, int width, int height);
 void error_callback(int error, const char* description);
 void mouse_callback_handle(GLFWwindow* window, double xposIn, double yposIn);
+void mouse_button_callback_handle(GLFWwindow* window, int button, int action, int mods);
 void scroll_callback_handle(GLFWwindow* window, double xoffset, double yoffset);
 void key_callback_handle(GLFWwindow* window, int key, int scancode, int action, int mods);
 
@@ -45,6 +47,7 @@ private:
 
 	void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 	void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
+	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 	void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
@@ -52,6 +55,7 @@ private:
 
 	friend void frame_buffer_size_callback_handle(GLFWwindow* window, int width, int height);
 	friend void mouse_callback_handle(GLFWwindow* window, double xposIn, double yposIn);
+	friend void mouse_button_callback_handle(GLFWwindow* window, int button, int action, int mods);
 	friend void scroll_callback_handle(GLFWwindow* window, double xoffset, double yoffset);
 	friend void key_callback_handle(GLFWwindow* window, int key, int scancode, int action, int mods);
 };

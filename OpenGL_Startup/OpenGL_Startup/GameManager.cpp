@@ -31,6 +31,7 @@ GameManager::GameManager()
 	glfwSetCursorPosCallback(m_Window, mouse_callback_handle);
 	glfwSetScrollCallback(m_Window, scroll_callback_handle);
 	glfwSetKeyCallback(m_Window, key_callback_handle);
+	glfwSetMouseButtonCallback(m_Window, mouse_button_callback_handle);
 
 	// glad: load all OpenGL function pointers
 	// ---------------------------------------
@@ -139,10 +140,16 @@ void mouse_callback_handle(GLFWwindow* window, double xposIn, double yposIn)
 	ptr->mouse_callback(window, xposIn, yposIn);
 }
 
+void mouse_button_callback_handle(GLFWwindow* window, int button, int action, int mods)
+{
+	GameManager* ptr = (GameManager*)glfwGetWindowUserPointer(window);
+	ptr->mouse_button_callback(window, button, action, mods);
+}
+
 void scroll_callback_handle(GLFWwindow* window, double xoffset, double yoffset)
 {
 	GameManager* ptr = (GameManager*)glfwGetWindowUserPointer(window);
-	ptr->scroll_callback(window, xoffset, yoffset);
+	ptr->scroll_callback(window, xoffset, yoffset); 
 }
 
 void key_callback_handle(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -153,14 +160,17 @@ void key_callback_handle(GLFWwindow* window, int key, int scancode, int action, 
 
 void GameManager::frame_buffer_size_callback(GLFWwindow* window, int width, int height)
 {
-	windowWidth = width;
-	windowHeight = height;
-	glViewport(0, 0, width, height);
+	m_SceneStack->frame_buffer_size_callback(window, width, height);
 }
 
 void GameManager::mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
 	m_SceneStack->mouse_callback(window, xposIn, yposIn);
+}
+
+void GameManager::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	m_SceneStack->mouse_button_callback(window, button, action, mods);
 }
 
 void GameManager::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
