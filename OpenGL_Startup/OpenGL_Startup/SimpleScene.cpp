@@ -1,7 +1,9 @@
 #include "SimpleScene.h"
 
 SimpleScene::SimpleScene(SceneStack _stack, SceneContext _context)
-	: Scene(_stack, _context), m_context(_context), m_board(), fbo(_context.renderer->m_screenShader.get()),
+	: Scene(_stack, _context), m_context(_context), m_board()
+	, screenFBO(_context.renderer->m_screenShader.get()),
+	edgeFBO(_context.renderer->m_screenShader.get()),
 	shadowMap(_context.renderer->m_shadowShader, _context.renderer->m_shadowDebugShader),
 	floor(), speaker()
 {
@@ -12,6 +14,7 @@ SimpleScene::SimpleScene(SceneStack _stack, SceneContext _context)
 	glfwGetWindowSize(m_window, &vw, &vh);
 
 	modelShader = _context.renderer->m_modelShader.get();
+	edgeShader = _context.renderer->m_edgeShader.get();
 
 	boardManager = new BoardManager(_context.renderer.get());
 
@@ -42,7 +45,7 @@ void SimpleScene::draw()
 	glViewport(0,0,vw,vh);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	fbo.use();
+	screenFBO.use();
 		modelShader->use();
 			shadowMap.depthTexture->bind(5);
 			modelShader->setInt("shadowMap", 5);
@@ -52,10 +55,25 @@ void SimpleScene::draw()
 			floor.draw(modelShader);
 			speaker.draw(modelShader);
 		modelShader->unUse();
-	fbo.unUse();
+	screenFBO.unUse();
+
+	/* edge glowing effect */
+	edgeFBO.use();
+		edgeShader->use();
+		if(speaker.isHover)
+			speaker.draw(edgeShader);
+
+		Chess* tmpChess = boardManager->getHoverChess();
+		if(tmpChess) 
+			tmpChess->draw(edgeShader);
+		edgeShader->unUse();
+	edgeFBO.unUse();
 
 	/* Show Screen FBO*/
-	fbo.draw();
+	screenFBO.shader->use();
+	edgeFBO.colorTextures[0]->bind(7);
+	screenFBO.shader->setInt("edgeTexture",7);
+	screenFBO.draw();
 
 	if (ui.ShadowDebug) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -100,7 +118,7 @@ bool SimpleScene::update(float deltaTime)
 	modelShader->unUse();
 
 	/* Game Object */
-	fbo.update(vw, vh);
+	screenFBO.update(vw, vh);
 	boardManager->update(BoardManager::updateContent{ deltaTime, m_camera.get() });
 	speaker.isHover = speaker.bb.raycast(m_camera->Position, m_camera->Front, 10, speaker.m_transform.getModelMatrix());
 	speaker.setListenerPosition(m_camera->Position, m_camera->Front);

@@ -41,11 +41,11 @@ public:
 
 	bool ShadowDebug = false;
 	bool ShadowOn = true;
-	float dirLightPosition[3] = { 0.0f, 0.0f, -0.0f };
-	float dirLightDirection[3] = { -9.0f, -20.0f, -9.0f };
+	float dirLightPosition[3] = { 0.0f, -19.0f, 0.0f };
+	float dirLightDirection[3] = { -1.0f, -5.0f, -2.0f };
 
-	float maxBias = 0.009, minBias = 0.000;
-	int sampleNum = 2;
+	float maxBias = 0.015, minBias = 0.0001;
+	int sampleNum = 3;
 
 	void GameUI();
 };
@@ -65,7 +65,8 @@ public:
 	virtual void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) override;
 	virtual void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) override;
 
-	FBO fbo;
+	FBO screenFBO;
+	FBO edgeFBO;
 
 	std::shared_ptr<Camera> m_camera;
 	std::shared_ptr<DirLight> m_dirLight;
@@ -92,7 +93,9 @@ public:
 
 	GLFWwindow* m_window;
 	SceneContext m_context;
+
 	Shader* modelShader;
+	Shader* edgeShader;
 
 
 	SimpleSceneGUI ui;

@@ -92,6 +92,7 @@ public:
 	void setChessStatus(const int& x, const int& y, unsigned int status, bool flag);
 	void clearChess();
 	void clearHintChess();
+	Chess* getHoverChess();
 
 	bool isFull();
 

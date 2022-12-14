@@ -196,6 +196,16 @@ void BoardManager::clearHintChess()
     _availPosRecord = vector<glm::ivec2>();
 }
 
+Chess* BoardManager::getHoverChess()
+{
+    for (const auto& idx : _availPosRecord) {
+        if (_board[idx.y][idx.x]->getStatus(Chess::Status::hover)) {
+            return _board[idx.y][idx.x];
+        }
+    }
+    return nullptr;
+}
+
 bool BoardManager::isFull()
 {
     for (int i = 0; i < BOARD_SIZE_Y; i++) {

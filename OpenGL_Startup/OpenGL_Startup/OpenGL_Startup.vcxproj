@@ -224,6 +224,8 @@
     <None Include="resource\shader\boundingbox.vert" />
     <None Include="resource\shader\debug_quad_depth.frag" />
     <None Include="resource\shader\debug_quad_depth.vert" />
+    <None Include="resource\shader\edgeShader.frag" />
+    <None Include="resource\shader\edgeShader.vert" />
     <None Include="resource\shader\modelShader.frag" />
     <None Include="resource\shader\modelShader.vert" />
     <None Include="resource\shader\screenShader.frag" />

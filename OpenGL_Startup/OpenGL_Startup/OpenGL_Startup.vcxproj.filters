@@ -280,5 +280,11 @@
     <None Include="resource\shader\shadow_mapping_depth.vert">
       <Filter>Shader</Filter>
     </None>
+    <None Include="resource\shader\edgeShader.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="resource\shader\edgeShader.vert">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>
