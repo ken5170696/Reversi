@@ -60,12 +60,12 @@ void SimpleScene::draw()
 	/* edge glowing effect */
 	edgeFBO.use();
 		edgeShader->use();
-		if(speaker.isHover)
-			speaker.draw(edgeShader);
+
+		if(speaker.isHover) speaker.draw(edgeShader);
 
 		Chess* tmpChess = boardManager->getHoverChess();
-		if(tmpChess) 
-			tmpChess->draw(edgeShader);
+		if(tmpChess) tmpChess->draw(edgeShader);
+
 		edgeShader->unUse();
 	edgeFBO.unUse();
 
